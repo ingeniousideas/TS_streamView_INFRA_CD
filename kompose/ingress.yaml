@@ -4,18 +4,17 @@ kind: Ingress
 metadata:
   name: ts-ui-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   ingressClassName: nginx
   rules:
-    - host: ts-ui.local        # add this to your Windows hosts file
+    - host: ts-ui.local
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: ts-ui-proxy
+                name: ts-ui-server  # Route directly to your backend service
                 port:
-                  number: 80
+                  number: 8050      # Target the backend's port
