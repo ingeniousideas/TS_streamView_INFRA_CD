@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ts-ui-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: ts-ui-server
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: ts-ui-server
+    spec:
+      containers:
+        - envFrom:
+            - configMapRef:
+                name: ts-ui-server-env
+          image: devpatterns/ts-ui-server:dev
+          imagePullPolicy: Always
+          name: ts-ui-server
+          ports:
+            - containerPort: 8050
+              protocol: TCP
+      imagePullSecrets:
+        - name: dockerhub-credentials
+      restartPolicy: Always
