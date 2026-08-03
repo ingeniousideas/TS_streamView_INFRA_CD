@@ -5,7 +5,7 @@ metadata:
   name: ts-ui-ingress
   # The Nginx SSL annotation has been removed as it is no longer applicable
 spec:
-  ingressClassName: traefik  # <-- UPDATED: Now targeting Traefik instead of Nginx
+  ingressClassName: traefik-infrastructure  # <-- UPDATED: Now targeting Traefik instead of Nginx
   rules:
     - host: ts-ui.local
       http:
