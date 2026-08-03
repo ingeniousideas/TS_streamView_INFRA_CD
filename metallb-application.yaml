@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/ingeniousideas/TS_streamView_INFRA_CD.git # Replace with your GitHub username
-    targetRevision: HEAD
-    path: metallb # Points ArgoCD exclusively to this folder
+    chart: metallb
+    repoURL: https://metallb.github.io/metallb
+    targetRevision: 0.13.10 # Standard best practice to lock versions in GitOps
   destination:
     server: https://kubernetes.default.svc
     namespace: metallb-system
