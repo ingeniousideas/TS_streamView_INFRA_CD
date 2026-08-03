@@ -3,10 +3,9 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ts-ui-ingress
-  annotations:
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+  # The Nginx SSL annotation has been removed as it is no longer applicable
 spec:
-  ingressClassName: nginx
+  ingressClassName: traefik  # <-- UPDATED: Now targeting Traefik instead of Nginx
   rules:
     - host: ts-ui.local
       http:
@@ -15,6 +14,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: ts-ui-server  # Route directly to your backend service
+                name: ts-ui-server
                 port:
-                  number: 8050      # Target the backend's port
+                  number: 8050
