@@ -16,7 +16,7 @@ spec:
         - envFrom:
             - configMapRef:
                 name: ts-ui-server-env
-          image: docker.io/devpatterns/stream_view:fb0356957951105bb589c2142b1e0932231a2a26
+          image: docker.io/devpatterns/stream_view:315e7b0fbfe0365b2774eb2cb468618fc3ea187e
           imagePullPolicy: Always
           name: ts-ui-server
           ports:
