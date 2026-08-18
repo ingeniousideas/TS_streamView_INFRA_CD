@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: ts-ui-server
 spec:
-  replicas: 2
+  replicas: 4
   selector:
     matchLabels:
       app.kubernetes.io/name: ts-ui-server
